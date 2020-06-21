@@ -23,12 +23,18 @@ for row in rows:
     sq_ft = row_text[sq_ft_start:sq_ft_start + len("XXXX")].strip()
     floor_start = row_text.find("Floor") + len("Floor") + 1
     floor = row_text[floor_start:floor_start+1]
+    bed_start = row_text.find("Bed") - len("X ")
+    beds = row_text[bed_start:bed_start+1]
+    bath_start = row_text.find("Bath") - len("X ")
+    baths = row_text[bath_start:bath_start+1]
     # print("row_text = " + str(row_text))
     print("pricing = " + str(pricing))
     print("time period = " + str(time_period))
     print("availability = " + str(availability))
     print("sq ft = " + sq_ft)
     print("floor = " + floor)
+    print("beds = " + beds)
+    print("baths = " + baths)
     # print(row)
     print("------------------------------------------------------------------------------------")
 
