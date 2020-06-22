@@ -5,6 +5,7 @@ import time
 from bs4 import BeautifulSoup
 
 cascades_url = "https://www.equityapartments.com/seattle/south-lake-union/cascade-apartments##bedroom-type-section-1"
+mark8th_url = "https://www.equityapartments.com/seattle/south-lake-union/mark-on-8th-apartments##bedroom-type-section-1"
 
 page = requests.get(cascades_url)
 
@@ -27,6 +28,8 @@ for row in rows:
     beds = row_text[bed_start:bed_start+1]
     bath_start = row_text.find("Bath") - len("X ")
     baths = row_text[bath_start:bath_start+1]
+    if beds != '1':
+        continue
     # print("row_text = " + str(row_text))
     print("pricing = " + str(pricing))
     print("time period = " + str(time_period))
@@ -37,4 +40,3 @@ for row in rows:
     print("baths = " + baths)
     # print(row)
     print("------------------------------------------------------------------------------------")
-
